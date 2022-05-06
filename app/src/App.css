@@ -28,10 +28,15 @@
   /* background-color: #60c657; */
 }
 
+p {
+  color: #fda1a1
+}
+
 .header {
   margin: 0;
   font-size: 50px;
   font-weight: bold;
+
 }
 
 .sub-text {
@@ -65,9 +70,9 @@
 }
 
 .mint-button {
-  background: -webkit-linear-gradient(left, #4e44ce, #35aee2);
+  background: -webkit-linear-gradient(left, #8c3bf4, #12fd99);
   background-size: 200% 200%;
-  animation: gradient-animation 4s ease infinite;
+  animation: gradient-animation 6s ease infinite;
   margin-left: 10px;
 }
 

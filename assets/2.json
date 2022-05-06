@@ -1,0 +1,19 @@
+{
+    "name": "METAANI_PFP",
+    "symbol": "",
+    "image": "2.png",
+    "properties": {
+      "files": [
+        {
+          "uri": "2.png",
+          "type": "image/png"
+        }
+      ],
+      "creators": [
+        {
+          "address": "DW7noYStRdL9iS1NECpRYuRgFbf19bysRKxMiDykJad1",
+          "share": 100
+        }
+      ]
+    }
+  }
