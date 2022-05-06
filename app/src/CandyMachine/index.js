@@ -15,6 +15,9 @@ import {
 } from './helpers';
 import CountdownTimer from '../CountdownTimer';
 
+// const REACT_APP_CANDY_MACHINE_ID = "7HW6VDZjiTSPUg7uCZfqTZUd7mSzFQosMmyby4fTNwSn";
+const REACT_APP_CANDY_MACHINE_ID = "F9zS9Zqp87yv5N95sqZ6DWZrtLubaJrgTmoHQgCnabFt";
+const REACT_APP_SOLANA_RPC_HOST = "https://explorer-api.devnet.solana.com";
 
 const { SystemProgram } = web3;
 const opts = {
@@ -301,7 +304,8 @@ const CandyMachine = ({ walletAddress }) => {
   };
 
   const getProvider = () => {
-    const rpcHost = process.env.REACT_APP_SOLANA_RPC_HOST;
+    // const rpcHost = process.env.REACT_APP_SOLANA_RPC_HOST;
+    const rpcHost = REACT_APP_SOLANA_RPC_HOST;
     const connection = new Connection(rpcHost);
     const provider = new Provider(
       connection,
@@ -317,7 +321,8 @@ const CandyMachine = ({ walletAddress }) => {
     const idl = await Program.fetchIdl(candyMachineProgram, provider);
     const program = new Program(idl, candyMachineProgram, provider);
 
-    const candyMachine = await program.account.candyMachine.fetch(process.env.REACT_APP_CANDY_MACHINE_ID);
+    // const candyMachine = await program.account.candyMachine.fetch(process.env.REACT_APP_CANDY_MACHINE_ID);
+    const candyMachine = await program.account.candyMachine.fetch(REACT_APP_CANDY_MACHINE_ID);
 
     const itemsAvailable = candyMachine.data.itemsAvailable.toNumber();
     const itemsRedeemed = candyMachine.itemsRedeemed.toNumber();
@@ -333,7 +338,8 @@ const CandyMachine = ({ walletAddress }) => {
     const goLiveDateTimeString = `${new Date(goLiveData * 1000).toLocaleDateString()} @ ${new Date(goLiveData * 1000).toLocaleTimeString()}`;
 
     setCandyMachine({
-      id: process.env.REACT_APP_CANDY_MACHINE_ID,
+      // id: process.env.REACT_APP_CANDY_MACHINE_ID,
+      id: REACT_APP_CANDY_MACHINE_ID,
       program,
       state: {
         itemsAvailable,
